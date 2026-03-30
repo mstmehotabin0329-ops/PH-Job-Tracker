@@ -81,9 +81,8 @@ document.getElementById('allJobsContainer').addEventListener("click", function (
         rejectedContainer.appendChild(card);
 
     }
+    // added delete card functionality
     if (targetCard.classList.contains('deleted')) {
-        // console.log('deleted clicked');
-        // console.log(parent);
         parent.removeChild(card);
 
 
