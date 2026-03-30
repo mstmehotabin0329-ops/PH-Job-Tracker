@@ -1,4 +1,6 @@
 let activeTab = "all"
+let activebtn = ['btn-info', 'text-white']
+let inactivebtn = ['btn-active', 'text-[#444a52]']
 
 
 let totalCount = document.getElementById('total');
@@ -14,3 +16,24 @@ const emptyState = document.getElementById('no-data');
 
 
 
+
+
+// main botton 
+function toggleStyle(toggle) {
+
+    const btns = ["all", "interview", "rejected"];
+    activeTab = toggle;
+    for (const btn of btns) {
+        const btnNane = document.getElementById("tab-" + btn);
+
+
+        if (btn === toggle) {
+            btnNane.classList.remove(...inactivebtn);
+            btnNane.classList.add(...activebtn);
+        } else {
+            btnNane.classList.add(...inactivebtn);
+            btnNane.classList.remove(...activebtn);
+        }
+    }
+
+}
