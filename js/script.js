@@ -60,7 +60,7 @@ function toggleStyle(toggle) {
             emptyState.classList.remove('hidden');
         }
     }
-    // calculateCount();
+    calculateCount();
 }
 
 toggleStyle(activeTab);
@@ -88,8 +88,32 @@ document.getElementById('allJobsContainer').addEventListener("click", function (
 
 
     }
-    // calculateCount();
+    calculateCount();
 })
 
+function calculateCount() {
+    // totalCount.innerText = allContainer.children.length;
+    // interviewCount.innerText = interviewContainer.children.length;
+    // rejectedCount.innerText = rejectedContainer.children.length;
 
+    const counts = {
+        all: allContainer.children.length,
+        interview: interviewContainer.children.length,
+        rejected: rejectedContainer.children.length,
+    };
+    totalCount.innerText = counts.all;
+    interviewCount.innerText = counts.interview;
+    rejectedCount.innerText = counts.rejected;
+    availableCount.innerText = counts[activeTab];
+
+    if(counts[activeTab] === 0){
+        emptyState.classList.remove('hidden');
+    }
+    else{
+        emptyState.classList.add('hidden');
+    }
+
+
+}
+calculateCount();
 
