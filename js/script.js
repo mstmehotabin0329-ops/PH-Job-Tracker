@@ -36,4 +36,60 @@ function toggleStyle(toggle) {
         }
     }
 
+   const views = [allContainer, interviewContainer, rejectedContainer];
+
+    for (let section of views) {
+        section.classList.add('hidden');
+        emptyState.classList.add('hidden');
+    }
+    if (toggle === 'all') {
+        allContainer.classList.remove('hidden');
+        if (allContainer.children.length === 0) {
+            emptyState.classList.remove('hidden');
+        }
+    }
+    else if (toggle === 'interview') {
+        interviewContainer.classList.remove('hidden');
+        if (interviewContainer.children.length === 0) {
+            emptyState.classList.remove('hidden');
+        }
+    }
+    else {
+        rejectedContainer.classList.remove('hidden');
+        if (rejectedContainer.children.length === 0) {
+            emptyState.classList.remove('hidden');
+        }
+    }
+    // calculateCount();
 }
+
+toggleStyle(activeTab);
+
+document.getElementById('allJobsContainer').addEventListener("click", function (event) {
+    // console.log(event.target);
+    const targetCard = event.target;
+    const card = targetCard.closest('.jobChild');
+    const status = card.querySelector('.type');
+    const parent = card.parentNode;
+
+    if (targetCard.classList.contains('inverviw-btn')) {
+        status.innerText = "Interview"
+        interviewContainer.appendChild(card);
+    }
+    if (targetCard.classList.contains('rejected-btn')) {
+        status.innerText = "Rejected"
+        rejectedContainer.appendChild(card);
+
+    }
+    if (targetCard.classList.contains('deleted')) {
+        // console.log('deleted clicked');
+        // console.log(parent);
+        parent.removeChild(card);
+
+
+    }
+    // calculateCount();
+})
+
+
+
