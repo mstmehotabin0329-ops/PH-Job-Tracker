@@ -90,11 +90,9 @@ document.getElementById('allJobsContainer').addEventListener("click", function (
     calculateCount();
 })
 
+// all calculation
 function calculateCount() {
-    // totalCount.innerText = allContainer.children.length;
-    // interviewCount.innerText = interviewContainer.children.length;
-    // rejectedCount.innerText = rejectedContainer.children.length;
-
+    
     const counts = {
         all: allContainer.children.length,
         interview: interviewContainer.children.length,
